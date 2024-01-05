@@ -1,0 +1,20 @@
+<div *ngIf="this.data.mode == 'addExisting'">
+<h1 mat-dialog-title>Artikel bereits vorhanden</h1>
+<div mat-dialog-content>
+  Wollen Sie stattdessen die Anzahl aktualisieren?
+</div>
+<div mat-dialog-actions class="button-row">
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button mat-button mat-dialog-close (click)="changeQuantity()" cdkFocusInitial>Anzahl aktualisieren</button>
+</div>
+</div>
+<div *ngIf="this.data.mode == 'editExisting'">
+  <h1 mat-dialog-title>Artikel bearbeiten</h1>
+  <div mat-dialog-content>
+    Wollen Sie stattdessen die Anzahl aktualisieren?
+  </div>
+  <div mat-dialog-actions class="button-row">
+    <button mat-button mat-dialog-close>Abbrechen</button>
+    <button mat-button mat-dialog-close (click)="changeQuantity()" cdkFocusInitial>Anzahl aktualisieren</button>
+  </div>
+</div>

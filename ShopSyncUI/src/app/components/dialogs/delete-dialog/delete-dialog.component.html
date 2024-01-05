@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Artikel entfernen</h1>
+<div mat-dialog-content>
+  Möchten Sie {{ data.item.name }} wirklich entfernen?
+</div>
+<div mat-dialog-actions class="button-row">
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button mat-button mat-dialog-close (click)="callDeleteFunction()" cdkFocusInitial>Entfernen</button>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-tab-group
+    [(selectedIndex)]="tabGroupIndex"
+    mat-stretch-tabs="false"
+    mat-align-tabs="center"
+    style="padding-top: 48px"
+    #demo3Tab
+  >
+    <mat-tab
+      label="{{ list.name }}"
+      *ngFor="let list of this.lists"
+      style="position: absolute; left: 50%; height: 700px;"
+    >
+
+      <app-list-display [selectedList]="list" class="list"></app-list-display
+    >
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <button mat-icon-button (click)="demo3BtnClick()">
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

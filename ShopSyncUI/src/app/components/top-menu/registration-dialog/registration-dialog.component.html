@@ -1,0 +1,86 @@
+<h1 mat-dialog-title style="text-align: center">Registrieren</h1>
+<div mat-dialog-content class="registrationForm">
+  <form [formGroup]="registrationForm">
+    <p>
+      <mat-form-field class="item" appearance="outline">
+        <mat-label>Vorname</mat-label>
+        <input matInput formControlName="prename" placeholder="Vorname" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="item" appearance="outline">
+        <mat-label>Nachname</mat-label>
+        <input matInput formControlName="surname" placeholder="Nachname" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="item" appearance="outline">
+        <mat-label>E-Mail</mat-label>
+        <input matInput formControlName="mail" placeholder="E-Mail" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="item" appearance="outline">
+        <mat-label>Passwort</mat-label>
+        <input
+          matInput
+          [type]="hidePW ? 'password' : 'text'"
+          formControlName="password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hidePW = !hidePW"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePW"
+        >
+          <mat-icon>{{ hidePW ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <h5
+      style="color: red"
+      *ngIf="
+        registrationForm.get('repeatPassword')?.touched &&
+        registrationForm.get('repeatPassword')?.value !=
+          registrationForm.get('password')?.value
+      "
+    >
+      Die Passwörter stimmen nicht überein!
+    </h5>
+    <p>
+      <mat-form-field class="item" appearance="outline">
+        <mat-label>Passwort wiederholen</mat-label>
+        <input
+          matInput
+          [type]="hideRepeatPW ? 'password' : 'text'"
+          formControlName="repeatPassword"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hideRepeatPW = !hideRepeatPW"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hideRepeatPW"
+        >
+          <mat-icon>{{
+            hideRepeatPW ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+  </form>
+</div>
+<div mat-dialog-actions class="action-buttons">
+  <button mat-flat-button mat-dialog-close>Abbrechen</button>
+  <button
+    mat-flat-button
+    color="primary"
+    mat-dialog-close
+    cdkFocusInitial
+    (click)="onSubmit()"
+    [disabled]="this.isFormValid()"
+  >
+    Registrieren
+  </button>
+</div>

@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <div class="list" style="margin-top: 100px">
+    <h3
+      class="section"
+      style="font-size: large"
+      matSubheader
+      *ngFor="let category of this.selectedList?.categories"
+    >
+      {{ category.name }} <br />
+      <mat-list-item
+        class="item"
+        style="font-size: medium"
+        *ngFor="let item of category.items"
+      >
+        <div class="button-row">
+          <div>
+            <button mat-icon-button (click)="changeItemState(this.item)">
+              <mat-icon *ngIf="!this.item.stateChecked"
+                >add_shopping_cart</mat-icon
+              >
+              <mat-icon
+                *ngIf="this.item.stateChecked"
+                [ngStyle]="{ color: 'green' }"
+                >shopping_cart</mat-icon
+              >
+            </button>
+          </div>
+          <div class="example-button-container">
+            <button
+              mat-icon-button
+              (click)="deleteItem(this.item, category, true)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <div>
+            <button mat-icon-button (click)="editItem(this.item)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <div
+            [style]="
+              this.item.stateChecked ? 'text-decoration: line-through;' : ''
+            "
+          >
+            {{ item.quantity }}
+            {{ item.name }}
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+    </h3>
+  </div>
+  <div class="add-item-container">
+    <div class="items">
+      <mat-form-field
+        class="item-quantity"
+        appearance="outline"
+        autocomplete="off"
+      >
+        <mat-label>Anzahl</mat-label>
+        <input
+          [min]="1"
+          autocomplete="new-quantity"
+          type="number"
+          [(ngModel)]="newItemQuantity"
+          matInput
+        />
+      </mat-form-field>
+      <mat-form-field class="item-add" appearance="outline">
+        <mat-label>Waren hinzufügen</mat-label>
+        <input
+          [(ngModel)]="newItem"
+          matInput
+          placeholder
+          (keyup.enter)="addItem()"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="addItem()">
+        Hinzufügen
+      </button>
+    </div>
+  </div>
+</div>

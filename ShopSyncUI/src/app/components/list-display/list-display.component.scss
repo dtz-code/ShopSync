@@ -1,0 +1,58 @@
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+  width: 1200px;
+  margin: auto;
+  height: 1000px;
+}
+
+.footer {
+  height: 50px;
+}
+
+.item {
+  text-align: center;
+  display: flex;
+}
+
+.list {
+  overflow-x: auto;
+  overflow-y: visible;
+  height: 900px;
+  margin-bottom: 100px;
+}
+
+.item:hover {
+  background: #cfd6e3;
+}
+
+.add-item-container {
+  display: table;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.items {
+  display: table-cell;
+  width: 100%;
+}
+
+.items > input {
+  width: 100%;
+}

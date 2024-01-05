@@ -1,0 +1,62 @@
+<div class="store-finder">
+  <div class="header">
+    <h2 style="margin-bottom: auto; top: 0; text-align: center">
+      EDEKA-Filialen in deiner Nähe finden
+    </h2>
+  </div>
+  <button (click)="searchNearbyEdekaFilials()">Suchen</button>
+
+  <div class="scroll-container">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel *ngFor="let market of this.nearestFilials">
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ market.name }} </mat-panel-title>
+          <mat-panel-description>
+            {{ market.distance }}KM entfernt
+          </mat-panel-description>
+          <mat-panel-description>
+            {{ market.contact.address.street }},
+            {{ market.contact.address.city.zipCode }}
+            {{ market.contact.address.city.name }}
+          </mat-panel-description>
+          <mat-panel-description>
+            <p *ngIf="this.isMarketOpen(market)" style="color: #32a852">
+              jetzt geöffnet
+            </p>
+            <p *ngIf="!this.isMarketOpen(market)" style="color: #b8252f">
+              jetzt geschlossen
+            </p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <h3>Öffnungszeiten</h3>
+        <div>
+          Montag: {{ market.businessHours.monday.from }} -
+          {{ market.businessHours.monday.to }} Uhr
+        </div>
+        <div>
+          Dienstag: {{ market.businessHours.tuesday.from }} -
+          {{ market.businessHours.tuesday.to }} Uhr
+        </div>
+        <div>
+          Mittwoch: {{ market.businessHours.wednesday.from }} -
+          {{ market.businessHours.wednesday.to }} Uhr
+        </div>
+        <div>
+          Donnerstag: {{ market.businessHours.thursday.from }} -
+          {{ market.businessHours.thursday.to }} Uhr
+        </div>
+        <div>
+          Freitag: {{ market.businessHours.friday.from }} -
+          {{ market.businessHours.friday.to }} Uhr
+        </div>
+        <div>
+          Samstag: {{ market.businessHours.saturday.from }} -
+          {{ market.businessHours.saturday.to }} Uhr
+        </div>
+        <div>Sonntag: geschlossen</div>
+        <br />
+        <button (click)="openEdekaPage(market.url)">Angebote anzeigen</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

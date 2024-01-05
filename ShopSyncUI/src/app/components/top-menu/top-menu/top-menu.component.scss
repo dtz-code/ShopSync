@@ -1,0 +1,59 @@
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #2c2c54;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-height: 50px;
+  display: flex;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #e3e3e3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  //   background: #ddd;
+  color: #ddd;
+}
+
+.logo-font {
+  font-size: large;
+}
+
+.account-area {
+  min-height: 48px;
+  max-width: fit-content;
+  text-align: right;
+  justify-content: center;
+  padding: 8 8 8 8;
+  margin-left: auto;
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.account-area button {
+  margin-left: 8px;
+}
+
+/* Main content */
+.main {
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+.accountMenu {
+  min-width: 500px;
+}
+
+.pp {
+  margin-top: -15px;
+}

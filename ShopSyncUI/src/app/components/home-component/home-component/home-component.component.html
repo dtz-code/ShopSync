@@ -1,0 +1,40 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <div class="user">
+      <h1
+        style="
+          font-weight: bolder;
+          position: relative;
+          /* top: -150px;
+          left: -190px; */
+        "
+      >
+        Guten {{ this.moment }}, {{ this.userCall }}!
+      </h1>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div style="min-width: 95%">
+      <app-geolocating></app-geolocating>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>
+    <div style="min-width: 95%">
+      <h3>Ihre Listen</h3>
+      <br />
+      <button mat-icon-button (click)="loadLastChangedLists()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <mat-list>
+        <mat-list-item *ngFor="let list of sortedLists">
+          <span matListItemTitle>{{ list.name }}</span>
+          <span matListItemLine
+            >zuletzt geändert von {{ list.lastChangedBy?.prename }}
+          </span>
+          <span matListItemLine>{{ list.getListDateAsString() }}</span>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

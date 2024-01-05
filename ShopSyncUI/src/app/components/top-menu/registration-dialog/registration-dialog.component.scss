@@ -1,0 +1,20 @@
+.registrationForm {
+  display: flex;
+
+  justify-content: left;
+  align-items: left;
+
+  padding-top: 10px;
+}
+
+.registrationForm .item {
+  min-width: 130%;
+}
+
+.action-buttons {
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 10px;
+}

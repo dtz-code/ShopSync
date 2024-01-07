@@ -108,10 +108,15 @@ namespace API.Services
         }
         public async Task<IEnumerable<ShoppingListDto>> GetShoppingListsForUser(int userId)
         {
+            var userIdString = userId.ToString();
+
             var shoppingListsForUser = await _context.ShoppingLists
                 .Include(sl => sl.ListItems)
-                .Where(sl => sl.UserId == userId) 
                 .ToListAsync();
+
+            var filteredShoppingLists = shoppingListsForUser
+                .Where(sl => sl.UserIds.Split(',').Contains(userIdString))
+                .ToList();
 
             return _mapper.Map<IEnumerable<ShoppingListDto>>(shoppingListsForUser);
         }

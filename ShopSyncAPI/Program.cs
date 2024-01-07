@@ -1,7 +1,6 @@
 global using API.Data;
 global using API.DTOs;
-global using API.Entities;
-global using API.Entities.Enums;
+global using API.Entities; 
 global using API.MappingConfiguration;
 global using API.Services;
 global using AutoMapper;

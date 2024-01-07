@@ -42,23 +42,6 @@ public class ShoppingListController : ControllerBase
         return CreatedAtAction(nameof(GetShoppingList), new { id = createdShoppingList.Id }, createdShoppingList);
     }
 
-    [HttpPut("{id}")]
-    public async Task<ActionResult<ShoppingListDto>> UpdateShoppingList(int id, [FromBody] ShoppingListDto shoppingListDto)
-    {
-        if (id != shoppingListDto.Id)
-        {
-            return BadRequest("Mismatched ID in request body");
-        }
-
-        var updatedShoppingList = await _shoppingListService.Save(shoppingListDto);
-        if (updatedShoppingList == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(updatedShoppingList);
-    }
-
     [HttpDelete("{id}")]
     public async Task<ActionResult<ShoppingListDto>> DeleteShoppingList(int id)
     {

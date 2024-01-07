@@ -106,5 +106,15 @@ namespace API.Services
             var entityAttribute = entityType.GetCustomAttributes(inherit: false).OfType<System.ComponentModel.DataAnnotations.Schema.TableAttribute>().FirstOrDefault();
             return entityAttribute?.Name;
         }
+        public async Task<IEnumerable<ShoppingListDto>> GetShoppingListsForUser(int userId)
+        {
+            var shoppingListsForUser = await _context.ShoppingLists
+                .Include(sl => sl.ListItems)
+                .Where(sl => sl.UserId == userId) 
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<ShoppingListDto>>(shoppingListsForUser);
+        }
+
     }
 }

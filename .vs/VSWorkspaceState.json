@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Local settings (.vs)",
+    "\\Local settings (.vs)\\ShopSyncc",
+    "\\Local settings (.vs)\\ShopSyncc\\v17",
+    "\\ShopSyncAPI",
+    "\\ShopSyncAPI\\Migrations",
+    "\\ShopSyncUI\\src"
   ],
-  "SelectedNode": "\\C:\\Users\\tzane\\OneDrive\\Dokumente\\BBS SchulZeug\\ShopSyncc",
+  "SelectedNode": "\\ShopSyncUI",
   "PreviewInSolutionExplorer": false
 }

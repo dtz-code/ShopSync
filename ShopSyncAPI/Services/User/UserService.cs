@@ -120,7 +120,7 @@ namespace API.Services
 
             if (user != null)
             {
-                return 200;
+                return user.Id;
             }
             else
             {

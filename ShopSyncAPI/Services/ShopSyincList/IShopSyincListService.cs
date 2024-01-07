@@ -9,5 +9,6 @@ namespace API.Services
         Task<ShoppingListDto?> Save(ShoppingListDto shoppingListDto);
         Task<ShoppingListDto?> Delete(int id);
         Task<int> Delete(IEnumerable<int> ids);
+        Task<IEnumerable<ShoppingListDto>> GetShoppingListsForUser(int userId);
     }
 }

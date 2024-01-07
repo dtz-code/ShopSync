@@ -77,4 +77,17 @@ public class ShoppingListController : ControllerBase
         var affectedRows = await _shoppingListService.Delete(ids);
         return Ok(affectedRows);
     }
+
+    [HttpGet("{userId}")]
+    public async Task<ActionResult<IEnumerable<ShoppingListDto>>> GetShoppingListsForUser(int userId)
+    {
+        var shoppingListsForUser = await _shoppingListService.GetShoppingListsForUser(userId);
+
+        if (shoppingListsForUser == null || !shoppingListsForUser.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(shoppingListsForUser);
+    }
 }

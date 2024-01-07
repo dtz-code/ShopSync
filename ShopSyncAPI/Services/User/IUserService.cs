@@ -11,6 +11,6 @@ namespace API.Services
         Task<IEnumerable<UserDto>> Save(IEnumerable<UserDto> usersDto);
         Task<UserDto?> Delete(int id);
         Task<int> Delete(IEnumerable<int> ids);
-        Task<int> LogIn(UserDto userDto);
+        Task<int?> LogIn(UserDto userDto);
     }
 }

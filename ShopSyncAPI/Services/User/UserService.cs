@@ -112,7 +112,7 @@ namespace API.Services
 
             return affectedRows;
         }
-        public async Task<int> LogIn(UserDto User)
+        public async Task<int?> LogIn(UserDto User)
         {
             var user = await _context.Users
                .Where(u => u.Username == User.Username && u.Password == User.Password)

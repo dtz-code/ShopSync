@@ -45,7 +45,6 @@ public class UserController : ControllerBase
 
         var createdUser = await _userService.Save(userDto);
 
-        // Assuming Save returns the created user DTO
         return CreatedAtAction(nameof(GetUser), new { id = createdUser.Id }, createdUser);
     }
 
@@ -63,9 +62,16 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<int>> Login([FromBody] UserDto loginRequest)
     {
-        // Assuming LoginRequest is a class containing username and password properties
-        var statusCode = await _userService.LogIn(loginRequest);
+        var userId = await _userService.LogIn(loginRequest);
 
-        return StatusCode(statusCode);
+        if (userId.HasValue)
+        {
+            return Ok(userId.Value);
+        }
+        else
+        {
+            return NotFound();
+        }
     }
+
 }

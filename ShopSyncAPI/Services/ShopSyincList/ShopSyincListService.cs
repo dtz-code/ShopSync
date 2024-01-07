@@ -49,7 +49,7 @@ namespace API.Services
             else
             {
                 var existingList = await _context.ShoppingLists
-                    .Include(sl => sl.ListItems)  // Include ListItems for update
+                    .Include(sl => sl.ListItems)
                     .AsTracking()
                     .Where(c => c.Id == shoppingList.Id)
                     .FirstOrDefaultAsync();
@@ -64,7 +64,7 @@ namespace API.Services
                 foreach (var listItemDto in shoppingListDto.ListItems)
                 {
                     var listItem = _mapper.Map<ListItem>(listItemDto);
-                    existingList.ListItems.Add(listItem);  // Add or update ListItems
+                    existingList.ListItems.Add(listItem);
                 }
             }
 

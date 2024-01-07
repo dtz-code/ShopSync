@@ -44,14 +44,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseMigrationsEndPoint();
-    app.ConfigureCustomExceptionMiddleware();
+    app.UseMigrationsEndPoint(); 
 }
 else
 {
     app.UseExceptionHandler("/Error");
-    app.UseHsts();
-    app.ConfigureCustomExceptionMiddleware();
+    app.UseHsts(); 
 }
 
 app.UseHttpsRedirection();
